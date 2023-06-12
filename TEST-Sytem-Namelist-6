@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>M606TEST-System</title>
+</head>
+<body>
+  <h1>Name List</h1>
+  
+  <ul id="nameList">
+    <li>John</li>
+    <li>Sarah</li>
+    <li>Michael</li>
+    <li>Emily</li>
+    <li>David</li>
+  </ul>
+
+  <form id="addNameForm">
+    <label for="nameInput">Add a Name:</label>
+    <input type="text" id="nameInput" />
+    <button type="submit">Add</button>
+  </form>
+
+  <script>
+    document.getElementById("addNameForm").addEventListener("submit", function(event) {
+      event.preventDefault(); // Prevent form submission
+      
+      var nameInput = document.getElementById("nameInput");
+      var nameList = document.getElementById("nameList");
+      
+      var newName = nameInput.value;
+      
+      if (newName) {
+        var listItem = document.createElement("li");
+        listItem.textContent = newName;
+        nameList.appendChild(listItem);
+        
+        nameInput.value = ""; // Clear the input field
+      }
+    });
+  </script>
+</body>
+</html>
