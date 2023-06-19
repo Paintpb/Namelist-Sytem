@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Namelist</title>
+	<link rel="stylesheet" href="style.css">
+	<style>
+		body {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 100vh;
+			margin: 0;
+		}
+		.box {
+			text-align: center;
+		}
+	</style>
+	<script>
+		window.addEventListener('DOMContentLoaded', (event) => {
+			document.getElementById("loginForm").addEventListener("submit", function(event) {
+				event.preventDefault();
+
+				var usernameInput = document.getElementById("usernameInput");
+				var passwordInput = document.getElementById("passwordInput");
+				var loginMessage = document.getElementById("loginMessage");
+
+				var username = usernameInput.value;
+				var password = passwordInput.value;
+
+				if (username === "admin" && password === "1234") {
+					loginMessage.textContent = "Login successful!";
+					loginMessage.className = "success";
+					window.location.href = "https://github.com/Paintpb/";
+				} else {
+					loginMessage.textContent = "Invalid username or password. Please try again.";
+					loginMessage.className = "error";
+				}
+
+				usernameInput.value = "";
+				passwordInput.value = "";
+			});
+		});
+	</script>
+</head>
+<body>
+	<div class="box">
+		<form id="loginForm" action="login.php" autocomplete="off">
+			<h2>Sign in</h2>
+			<div class="inputBox">
+				<input type="text" id="usernameInput" name="username" required="required">
+				<span>Username</span>
+				<i></i>
+			</div>
+			<div class="inputBox">
+				<input type="password" id="passwordInput" name="password" required="required">
+				<span>Password</span>
+				<i></i>
+			</div>
+			<div class="links">
+				<a href="#">Forgot Password?</a>
+				<a href="#">Sign Up</a>
+			</div>
+			<input type="submit" value="Login">
+			<p id="loginMessage"></p>
+		</form>
+	</div>
+</body>
+</html>
